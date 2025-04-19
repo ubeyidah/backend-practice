@@ -18,7 +18,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const oneStepBack = path.join(__dirname, ".."); // root folder
 
-if(process.env.NODE === "dev"){
+if(process.env.NODE === "pro"){
     app.use(express.static(path.join(oneStepBack,"client", 'dist')));
 
     app.get('/', function (req, res) {
