@@ -18,14 +18,12 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const oneStepBack = path.join(__dirname, ".."); // root folder
 
-if(process.env.NODE === "pro"){
+if ( process.env.STATUS !== "dev") {
     app.use(express.static(path.join(oneStepBack,"client", 'dist')));
-
     app.get('/', function (req, res) {
     res.sendFile(path.join(oneStepBack,"client", 'dist' ,'index.html'));
     });
 }
-
 const port = process.env.PORT 
 app.listen(port, () => {
     console.log(`server run http://localhost:${port}`);
